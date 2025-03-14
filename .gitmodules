@@ -1,3 +1,6 @@
 [submodule "WRFstats"]
 	path = WRFstats
 	url = git@github.com:mathieulandreau/WRFstats.git
+[submodule "py_wrf_arps"]
+	path = py_wrf_arps
+	url = git@github.com:mathieulandreau/py_wrf_arps.git
