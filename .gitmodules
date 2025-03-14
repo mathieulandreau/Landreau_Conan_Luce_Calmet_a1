@@ -1,0 +1,3 @@
+[submodule "WRFstats"]
+	path = WRFstats
+	url = git@github.com:mathieulandreau/WRFstats.git

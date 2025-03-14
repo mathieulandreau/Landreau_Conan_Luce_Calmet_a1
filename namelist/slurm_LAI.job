@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name=WRF_s14t30_LAI_rst
+#SBATCH --out=../../03_temp/02_WRF/14_20200515/30/LAI_out_%x.log
+#SBATCH --error=../../03_temp/02_WRF/14_20200515/30/LAI_error_%x.log
+
+#SBATCH --account=#MY_ACCOUNT
+#SBATCH --partition=standard
+#SBATCH --time=10:00:00
+#SBATCH --qos=short
+
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --mem=50G
+
+micromamba activate py_wrf_arps
+time python3 -u LAI_modif.py

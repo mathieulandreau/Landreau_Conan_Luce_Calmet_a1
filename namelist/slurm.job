@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH --job-name=WRF_s14_t30_rst
+#SBATCH --out=../../03_temp/02_WRF/14_20200515/30/out_%x.log
+#SBATCH --error=../../03_temp/02_WRF/14_20200515/30/error_%x.log
+
+#SBATCH --account= #MY_ACCOUNT
+#SBATCH --partition=standard
+#SBATCH --time=5-00:00:00
+#SBATCH --qos=long
+
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=1
+#SBATCH --ntasks=81
+##SBATCH --exclusive
+
+export SLURM_CPU_BIND=verbose,socket
+export SLURM_DISTRIBUTION="block:cyclic:block"
+module load wrf
+time srun --mpi=pmi2 ./wrf.exe
+

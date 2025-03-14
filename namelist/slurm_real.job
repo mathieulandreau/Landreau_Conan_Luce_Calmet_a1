@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH --job-name=WRF_s14t04_real_rst
+#SBATCH --out=../../03_temp/02_WRF/14_20200515/30/out_%x.log
+#SBATCH --error=../../03_temp/02_WRF/14_20200515/30/error_%x.log
+
+#SBATCH --account=#MY_ACCOUNT
+#SBATCH --partition=bigmem
+#SBATCH --time=10:00:00
+#SBATCH --qos=short
+
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --mem=100G
+
+module load wrf
+time ./real.exe
+mv wrfinput* ../../03_temp/02_WRF/14_20200515/30/.
+mv wrflowinp* ../../03_temp/02_WRF/14_20200515/30/.
